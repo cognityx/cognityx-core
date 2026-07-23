@@ -8,5 +8,6 @@ cloud, database, or serving implementations. Implementations can therefore use
 their preferred frameworks while remaining interoperable at package boundaries.
 
 - [Architecture](architecture.md)
+- [Training and reporting](training.md)
 - [Interface guide](interfaces.md)
 - [Generated API reference](api.md)

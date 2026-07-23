@@ -35,6 +35,7 @@ class TrainingRequest:
     dataset: Dataset
     parameters: Metadata = field(default_factory=dict)
     base_artifact: Artifact | None = None
+    output_dir: str = "outputs/training"
 
 
 @dataclass(frozen=True, slots=True)
@@ -43,6 +44,7 @@ class TrainingResult:
 
     artifact: Artifact
     metrics: Metadata = field(default_factory=dict)
+    report_uri: str | None = None
 
 
 @dataclass(frozen=True, slots=True)

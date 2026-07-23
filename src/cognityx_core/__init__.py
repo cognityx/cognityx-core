@@ -26,6 +26,16 @@ from cognityx_core.models import (
 )
 from cognityx_core.training import Trainer
 from cognityx_core.factories import BackendFactory
+from cognityx_core.reporting import (
+    AdapterUsage,
+    GPUUsage,
+    ParameterCounts,
+    ResponseTime,
+    SystemUsage,
+    TrainingReport,
+    utc_now,
+    write_training_report,
+)
 
 __all__ = [
     "Artifact",
@@ -47,8 +57,16 @@ __all__ = [
     "InferenceRequest",
     "InferenceResult",
     "ModelArtifactRegistry",
+    "AdapterUsage",
+    "GPUUsage",
+    "ParameterCounts",
+    "ResponseTime",
+    "SystemUsage",
     "Trainer",
     "TrainingBackend",
+    "TrainingReport",
     "TrainingRequest",
     "TrainingResult",
+    "utc_now",
+    "write_training_report",
 ]

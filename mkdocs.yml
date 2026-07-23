@@ -1,9 +1,11 @@
 site_name: Cognityx Core
 site_description: Shared interfaces for Cognityx AI systems
+dev_addr: 127.0.0.1:8124
 theme:
   name: material
 nav:
   - Home: index.md
+  - Training and reports: training.md
   - Architecture: architecture.md
   - Interfaces: interfaces.md
   - API reference: api.md

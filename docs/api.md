@@ -10,6 +10,8 @@
 
 ::: cognityx_core.training
 
+::: cognityx_core.reporting
+
 ::: cognityx_core.evaluation
 
 ::: cognityx_core.inference
