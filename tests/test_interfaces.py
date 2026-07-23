@@ -3,11 +3,14 @@
 from cognityx_core import (
     Artifact,
     ArtifactRegistry,
+    BackendConfig,
+    BackendFactory,
     Dataset,
     InferenceEngine,
     InferenceRequest,
     InferenceResult,
     TrainingRequest,
+    TrainingBackend,
 )
 
 
@@ -59,3 +62,20 @@ def test_inference_protocol_accepts_structural_implementation() -> None:
 
     assert isinstance(engine, InferenceEngine)
     assert engine.infer(InferenceRequest({"text": "hello"})).outputs == {"text": "hello"}
+
+
+class TestTrainingBackend(TrainingBackend):
+    """Small concrete backend used to verify ABC and factory behavior."""
+
+    def train(self, request: TrainingRequest):
+        raise NotImplementedError
+
+
+def test_configuration_driven_factory() -> None:
+    factory: BackendFactory[TrainingBackend] = BackendFactory()
+    factory.register("custom-pytorch", lambda _config: TestTrainingBackend())
+
+    backend = factory.create(BackendConfig("custom-pytorch"))
+
+    assert isinstance(backend, TrainingBackend)
+    assert factory.registered_backends == ("custom-pytorch",)

@@ -1,6 +1,13 @@
 """Stable shared interfaces for Cognityx AI systems."""
 
-from cognityx_core.artifacts import ArtifactRegistry
+from cognityx_core.artifacts import ArtifactRegistry, ModelArtifactRegistry
+from cognityx_core.backends import (
+    DeploymentBackend,
+    EvaluatorBackend,
+    InferenceBackend,
+    TrainingBackend,
+)
+from cognityx_core.configuration import BackendConfig
 from cognityx_core.datasets import DatasetProvider
 from cognityx_core.deployment import Deployer
 from cognityx_core.evaluation import Evaluator
@@ -18,22 +25,30 @@ from cognityx_core.models import (
     TrainingResult,
 )
 from cognityx_core.training import Trainer
+from cognityx_core.factories import BackendFactory
 
 __all__ = [
     "Artifact",
     "ArtifactRegistry",
+    "BackendConfig",
+    "BackendFactory",
     "Dataset",
     "DatasetProvider",
     "Deployer",
+    "DeploymentBackend",
     "DeploymentRequest",
     "DeploymentResult",
     "EvaluationRequest",
     "EvaluationResult",
     "Evaluator",
+    "EvaluatorBackend",
     "InferenceEngine",
+    "InferenceBackend",
     "InferenceRequest",
     "InferenceResult",
+    "ModelArtifactRegistry",
     "Trainer",
+    "TrainingBackend",
     "TrainingRequest",
     "TrainingResult",
 ]

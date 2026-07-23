@@ -5,20 +5,21 @@ components structurally implement the public protocols.
 
 ```mermaid
 flowchart LR
-    Client --> Trainer
-    Client --> Evaluator
-    Client --> InferenceEngine
-    Client --> Deployer
-    Trainer --> DatasetProvider
-    Trainer --> ArtifactRegistry
-    Evaluator --> DatasetProvider
-    Evaluator --> ArtifactRegistry
-    InferenceEngine --> ArtifactRegistry
-    Deployer --> ArtifactRegistry
-    Models[Shared value objects] --> Trainer
-    Models --> Evaluator
-    Models --> InferenceEngine
-    Models --> Deployer
+    Client --> BackendFactory
+    BackendFactory --> TrainingBackend
+    BackendFactory --> EvaluatorBackend
+    BackendFactory --> InferenceBackend
+    BackendFactory --> DeploymentBackend
+    TrainingBackend --> DatasetProvider
+    TrainingBackend --> ModelArtifactRegistry
+    EvaluatorBackend --> DatasetProvider
+    EvaluatorBackend --> ModelArtifactRegistry
+    InferenceBackend --> ModelArtifactRegistry
+    DeploymentBackend --> ModelArtifactRegistry
+    Models[Shared value objects] --> TrainingBackend
+    Models --> EvaluatorBackend
+    Models --> InferenceBackend
+    Models --> DeploymentBackend
 ```
 
 Protocols use structural typing, so adapters do not need to inherit from a base

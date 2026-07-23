@@ -9,6 +9,12 @@
 | Datasets | `DatasetProvider` | Resolve and enumerate versioned datasets. |
 | Artifacts | `ArtifactRegistry` | Publish, resolve and enumerate artifacts. |
 
+The orchestration-facing abstract base classes are `TrainingBackend`,
+`EvaluatorBackend`, `InferenceBackend`, `DeploymentBackend`, and
+`ModelArtifactRegistry`. `BackendFactory` resolves an implementation from the
+portable `BackendConfig.backend` name. Backend packages own typed subclasses for
+framework-specific settings.
+
 Requests and results are frozen, slotted dataclasses. Their `metadata` and
 `parameters` mappings are extension points for provider-specific values while
 the top-level lifecycle remains stable.

@@ -2,6 +2,12 @@
 
 ::: cognityx_core.models
 
+::: cognityx_core.configuration
+
+::: cognityx_core.factories
+
+::: cognityx_core.backends
+
 ::: cognityx_core.training
 
 ::: cognityx_core.evaluation
