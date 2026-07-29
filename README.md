@@ -38,7 +38,7 @@ uv run mkdocs serve
 ```
 
 The documentation preview uses <http://127.0.0.1:8124/> so it can run beside
-the `llm-benchmark` documentation server.
+the `cognityx-inference` documentation server.
 
 ## Example
 
